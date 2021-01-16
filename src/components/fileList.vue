@@ -2,7 +2,7 @@
     <div>
         <div class="file-upload">
             <el-upload
-                    action="/fileInfo/upload"
+                    :action="formAction"
                     ref="upload"
                     name="uploadFile"
                     :auto-upload="false"
@@ -81,6 +81,7 @@
 
 <script>
     import axios from 'axios'
+    import env from "@/env";
     export default {
         name: "upload",
         data(){
@@ -95,6 +96,7 @@
                     remark:'',
                     fileUploadName:'',
                 },
+                formAction: env.baseUrl + '/fileInfo/upload',
             }
         },
         mounted(){
@@ -109,7 +111,7 @@
             },
             handleSuccess(response){
                 let _this = this;
-                axios.post('/fileInfo/save',{
+                axios.post(env.baseUrl + '/fileInfo/save',{
                     id: response.data,
                     remark: _this.uploadRemark
                 }).then(resp => {
@@ -138,7 +140,7 @@
             },
             queryData(){
                 let _this = this;
-                axios.post("/fileInfo/page?pageNum="+_this.pageNum
+                axios.post(env.baseUrl + "/fileInfo/page?pageNum="+_this.pageNum
                     +"&pageSize="+_this.pageSize,_this.query).then(resp => {
                         if(resp.data.status === 1){
                             _this.tableData = resp.data.data.list;
@@ -152,7 +154,7 @@
                 })
             },
             downloadFile(row){
-                window.top.location.href = "/fileInfo/download/"+row.id
+                window.top.location.href = env.baseUrl + "/fileInfo/download/"+row.id
             },
             deleteFile(row){
                 let _this = this;
@@ -161,7 +163,7 @@
                     cancelButtonText: '取消',
                     type: 'warning'
                 }).then(() => {
-                    axios.post("/fileInfo/delete/"+row.id).then(resp => {
+                    axios.post(env.baseUrl + "/fileInfo/delete/"+row.id).then(resp => {
                         if(resp.data.status === 1){
                             _this.$message({
                                 type: 'success',

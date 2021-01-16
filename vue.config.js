@@ -14,5 +14,6 @@ module.exports = {
         }
     },
     // 选项...
-    outputDir:'../../static'
+    // outputDir:'../../static'
+    publicPath: './'
 };

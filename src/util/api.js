@@ -1,7 +1,7 @@
 /* eslint-disable */
 import axios from 'axios'
 
-let base = '';
+let base = '/pan-server';
 export const postRequest = (url, params) => {
   return axios({
     method: 'post',
