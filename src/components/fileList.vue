@@ -35,22 +35,22 @@
                 <el-table-column
                         prop="id"
                         label="id"
-                        width="180">
+                        >
                 </el-table-column>
                 <el-table-column
                         prop="createTime"
                         label="上传时间"
-                        width="180">
+                        >
                 </el-table-column>
                 <el-table-column
                         prop="fileUploadName"
                         label="文件名"
-                        width="180">
+                        >
                 </el-table-column>
                 <el-table-column
                         prop="owner.username"
                         label="归属人"
-                        width="180">
+                        >
                 </el-table-column>
                 <el-table-column
                         prop="remark"
@@ -59,7 +59,7 @@
                 <el-table-column
                         fixed="right"
                         label="操作"
-                        width="100">
+                        >
                     <template slot-scope="scope">
                         <el-button @click="downloadFile(scope.row)" type="text" size="small">下载</el-button>
                         <el-button @click="deleteFile(scope.row)" type="text" size="small">删除</el-button>

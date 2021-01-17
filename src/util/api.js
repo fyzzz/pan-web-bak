@@ -7,6 +7,13 @@ export const postRequest = (url, params) => {
     method: 'post',
     url: `${base}${url}`,
     data: params,
+  });
+}
+export const postFormRequest = (url, params) => {
+  return axios({
+    method: 'post',
+    url: `${base}${url}`,
+    data: params,
     transformRequest: [function (data) {
       let ret = ''
       for (let it in data) {
@@ -34,16 +41,6 @@ export const putRequest = (url, params) => {
     method: 'put',
     url: `${base}${url}`,
     data: params,
-    transformRequest: [function (data) {
-      let ret = ''
-      for (let it in data) {
-        ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-      }
-      return ret
-    }],
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
   });
 }
 export const deleteRequest = (url) => {
@@ -63,7 +60,6 @@ export const isEmpty = (val) => {
 };
 
 import {Message} from 'element-ui'
-import {Notification} from 'element-ui'
 export const connectSocket = (userId) => {
   if(!userId){
     return;

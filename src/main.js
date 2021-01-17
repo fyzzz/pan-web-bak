@@ -6,13 +6,14 @@ import router from './router';
 import store from './store';
 import {MessageBox} from "element-ui";
 import axios from 'axios';
-import {postRequest} from "./util/api";
+import {postFormRequest, putRequest} from "./util/api";
 import {connectSocket} from "./util/api";
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
-Vue.prototype.postRequest = postRequest;
+Vue.prototype.postFormRequest = postFormRequest;
+Vue.prototype.putRequest = putRequest;
 Vue.prototype.connectSocket = connectSocket;
 
 router.beforeEach((to,from,next) => {
@@ -40,7 +41,7 @@ axios.interceptors.response.use(response => {
         MessageBox.alert(errorInfo,"提示",{
             confirmButtonText:'确定',
             callback:() => {
-                postRequest('/logout',{}).then(resp => {
+                postFormRequest('/logout',{}).then(resp => {
                     if(resp && resp.data.status){
                         router.push("/login");
                     }

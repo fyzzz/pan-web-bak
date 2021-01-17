@@ -36,7 +36,7 @@
         methods: {
             submitClick: function () {
                 let _this = this;
-                this.postRequest('/login',{
+                this.postFormRequest('/login',{
                     username: _this.loginForm.username,
                     password:md5(_this.loginForm.password)
                 }).then(resp => {
@@ -72,9 +72,5 @@
         margin: 0 auto 40px auto;
         text-align: center;
         color: #505458;
-    }
-    .login_remember {
-        margin: 0 0 35px 0;
-        text-align: left;
     }
 </style>
