@@ -48,6 +48,24 @@ export default new Router({
                         requireAuth:true
                     },
                     component: () => import('./components/fileList.vue')
+                },
+                {
+                    path: '/recordList',
+                    name: 'recordList',
+                    meta: {
+                        title: '日志列表',
+                        requireAuth:true
+                    },
+                    component: () => import('./components/dailyRecord/list')
+                },
+                {
+                    path: '/recordCalendar',
+                    name: 'recordCalendar',
+                    meta: {
+                        title: '日志日历',
+                        requireAuth:true
+                    },
+                    component: () => import('./components/dailyRecord/calendar')
                 }
             ]
         },

@@ -62,6 +62,8 @@ export default {
             activeIndex2: '1',
             menuList: [
                 {name: '/fileList', menuItem: '文件列表'},
+                // {name: '/recordCalendar', menuItem: '日志日历'},
+                {name: '/recordList', menuItem: '日志列表'},
                 {name: '/personal', menuItem: '个人中心'},
             ],
             defaultActive: '/fileList',

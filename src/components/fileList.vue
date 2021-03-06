@@ -100,7 +100,7 @@
             }
         },
         mounted(){
-           this.queryData();
+           this.getData();
         },
         methods: {
             submitUpload(){
@@ -121,7 +121,7 @@
                             message: '上传成功!'
                         });
                         _this.pageNum = 1;
-                        _this.queryData();
+                        _this.getData();
                     } else {
                         _this.handleError();
                     }
@@ -136,9 +136,9 @@
             handleCurrentChange(val){
                 let _this = this;
                 _this.pageNum = val;
-                _this.queryData();
+                _this.getData();
             },
-            queryData(){
+            getData(){
                 let _this = this;
                 axios.post(env.baseUrl + "/fileInfo/page?pageNum="+_this.pageNum
                     +"&pageSize="+_this.pageSize,_this.query).then(resp => {
@@ -169,7 +169,7 @@
                                 type: 'success',
                                 message: '删除成功!'
                             });
-                            _this.queryData();
+                            _this.getData();
                         } else {
                             this.$message({
                                 message: resp.data.msg,
@@ -186,7 +186,7 @@
             },
             refresh(){
                 this.pageNum = 1;
-                this.queryData();
+                this.getData();
             }
         }
     }

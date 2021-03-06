@@ -6,13 +6,14 @@ import router from './router';
 import store from './store';
 import {MessageBox} from "element-ui";
 import axios from 'axios';
-import {postFormRequest, putRequest} from "./util/api";
+import {postFormRequest, putRequest, postRequest} from "./util/api";
 import {connectSocket} from "./util/api";
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
 Vue.prototype.postFormRequest = postFormRequest;
+Vue.prototype.postRequest = postRequest;
 Vue.prototype.putRequest = putRequest;
 Vue.prototype.connectSocket = connectSocket;
 
