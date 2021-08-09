@@ -1,20 +1,18 @@
 import Vue from 'vue';
 import App from './App.vue';
-import ElementUI from 'element-ui';
+import ElementUI, {MessageBox} from 'element-ui';
 import '../theme/index.css';
 import router from './router';
 import store from './store';
-import {MessageBox} from "element-ui";
 import axios from 'axios';
-import {postFormRequest, putRequest, postRequest} from "./util/api";
-import {connectSocket} from "./util/api";
+import {connectSocket,postFormRequest, getRequest, postRequest} from "./util/api";
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
 Vue.prototype.postFormRequest = postFormRequest;
 Vue.prototype.postRequest = postRequest;
-Vue.prototype.putRequest = putRequest;
+Vue.prototype.getRequest = getRequest;
 Vue.prototype.connectSocket = connectSocket;
 
 router.beforeEach((to,from,next) => {

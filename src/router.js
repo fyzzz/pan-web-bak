@@ -66,6 +66,15 @@ export default new Router({
                         requireAuth:true
                     },
                     component: () => import('./components/dailyRecord/calendar')
+                },
+                {
+                    path: '/storage',
+                    name: 'storage',
+                    meta: {
+                        title: '存储',
+                        requireAuth:true
+                    },
+                    component: () => import('./components/storage/list')
                 }
             ]
         },

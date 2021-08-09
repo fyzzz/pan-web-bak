@@ -61,12 +61,13 @@ export default {
             activeIndex: '1',
             activeIndex2: '1',
             menuList: [
+                {name: '/storage', menuItem: '存储'},
                 {name: '/fileList', menuItem: '文件列表'},
                 // {name: '/recordCalendar', menuItem: '日志日历'},
                 {name: '/recordList', menuItem: '日志列表'},
                 {name: '/personal', menuItem: '个人中心'},
             ],
-            defaultActive: '/fileList',
+            defaultActive: '/storage',
             username: '',
             dialogPasswordVisible: false,
             passwordForm: {
